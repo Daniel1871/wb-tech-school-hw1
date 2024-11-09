@@ -31,7 +31,8 @@ from 'C:\Users\Daniel\Desktop\WB\SQL\data\products.csv'
 csv
 header;
 
-create schema sellers_sch
+
+create schema sellers_sch;
 
 CREATE TABLE sellers (
 	seller_id smallint,
