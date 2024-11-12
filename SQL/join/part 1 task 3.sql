@@ -15,8 +15,8 @@ select
     name,
     SUM(is_delay::INTEGER) delay_num,
     SUM(is_cancel::INTEGER) cancel_num,
-    sum(cancel_amount) as total_sum
+    sum(cancel_amount) as total_canceled_amount
 from get_criteria join Customers USING(customer_id)
 where is_delay OR is_cancel
 group by customer_id, name
-order by total_sum DESC nulls last;
+order by total_canceled_amount DESC nulls last;
