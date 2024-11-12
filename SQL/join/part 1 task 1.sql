@@ -1,5 +1,5 @@
-select customer_id, name, (shipment_date::TIMESTAMP - order_date::TIMESTAMP) as waiting_time
-from Orders JOIN Customers USING(customer_id)
+SELECT customer_id, name, (shipment_date::TIMESTAMP - order_date::TIMESTAMP) AS waiting_time
+FROM Orders JOIN Customers USING(customer_id)
 ORDER BY waiting_time DESC
 LIMIT 1;
 
