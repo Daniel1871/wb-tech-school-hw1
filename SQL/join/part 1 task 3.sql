@@ -13,7 +13,6 @@ with get_criteria as (
 )
 select 
     name,
-    customer_id,
     SUM(is_delay::INTEGER) delay_num,
     SUM(is_cancel::INTEGER) cancel_num,
     sum(cancel_amount) as total_sum
