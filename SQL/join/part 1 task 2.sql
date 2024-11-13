@@ -17,7 +17,7 @@ SELECT
     total_sum
 FROM 
     get_customer_groups 
-    JOIN Customers using(customer_id)
+    JOIN Customers USING(customer_id)
 WHERE 
     order_num = (SELECT MAX(order_num) FROM get_customer_groups)
 ORDER BY 
