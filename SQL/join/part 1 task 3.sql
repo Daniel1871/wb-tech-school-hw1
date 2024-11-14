@@ -13,8 +13,8 @@ WITH get_criteria AS (
 )
 SELECT 
     name,
-    SUM(is_delay::INTEGER) delay_num,
-    SUM(is_cancel::INTEGER) cancel_num,
+    COALESCE(SUM(is_delay::INTEGER), 0) AS delay_num,
+    SUM(is_cancel::INTEGER) AS cancel_num,
     SUM(cancel_amount) AS total_canceled_amount
 FROM 
     get_criteria JOIN Customers USING(customer_id)
