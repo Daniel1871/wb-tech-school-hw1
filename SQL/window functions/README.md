@@ -19,8 +19,8 @@
 ```sql
 WITH get_max_employees (industry, name_highest_sal) AS (
     SELECT
-  	    industry, 
-  		(SELECT CONCAT(Salary.first_name, ' ', Salary.last_name)
+        industry, 
+        (SELECT CONCAT(Salary.first_name, ' ', Salary.last_name)
          FROM Salary
          WHERE Salary.industry = s2.industry AND Salary.salary = MAX(s2.salary)
          ORDER BY id desc
