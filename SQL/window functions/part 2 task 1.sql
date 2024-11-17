@@ -1,7 +1,7 @@
 select 
     SHOPNUMBER,
-  	CITY,
-	ADDRESS,
+    CITY,
+    ADDRESS,
     SUM(QTY) AS SUM_QTY,
     SUM(PRICE::INT * QTY) AS SUM_QTY_PRICE
 from 

@@ -1,11 +1,11 @@
 WITH get_rank AS (
     SELECT 
         SALES.DATE AS DATE_, 
-  		SHOPNUMBER, 
-  		ID_GOOD, 
-  		RANK() OVER w AS rnk
+  	SHOPNUMBER, 
+  	ID_GOOD, 
+  	RANK() OVER w AS rnk
     FROM 
-  	    SALES
+  	SALES
     WINDOW w AS (
         PARTITION BY SALES.DATE, SHOPNUMBER
         ORDER BY QTY DESC
