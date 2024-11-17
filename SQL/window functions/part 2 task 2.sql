@@ -3,7 +3,7 @@ WITH get_groups (DATE_, CITY, date_city_sale) AS (
         SALES.DATE AS DATE_,
         CITY,
         SUM(PRICE::INT * QTY) 
-    from 
+    FROM
         SALES 
         JOIN GOODS ON SALES.ID_GOOD = GOODS.ID_GOOD 
                       AND CATEGORY = 'ЧИСТОТА'
