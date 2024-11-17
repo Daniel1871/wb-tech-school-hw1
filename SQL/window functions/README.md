@@ -95,9 +95,10 @@ ORDER BY industry, salary, id;
 Результаты запроса для нашего удобства просмотра отсортированы по дате `DATE_`, магазину `SHOPNUMBER` и по товарному направлению `CATEGORY`. Для правильного сравнения в сортировке дата приведена к типу данных `DATE`.
 
 ## Часть 3. 
+Создание таблицы находится в файле [part 3 create table.sql](https://github.com/Daniel1871/wb-tech-school-hw1/blob/main/SQL/window%20functions/part%203%20create%20table.sql), а решение задачи – в файле [part 3.sql
+](https://github.com/Daniel1871/wb-tech-school-hw1/blob/main/SQL/window%20functions/part%203.sql)
+
 В табличном выражении `get_criteria` вычисляется следующий запрос `next_query` и время до следующего запроса `ts_diff` с помощью оконных функций. Данные делятся на секции (окна) по `userid`, `deviceid` (т.к. в условии сказано “пользователь вбил запрос (с определенного устройства)”). Берется `query` и `ts` из следующей записи внутри секции (`LEAD(query) OVER w` и `LEAD(ts) OVER w`) в соответствии с сортировкой по времени запроса `ts`.
-
-
 
 В табличном выражении `get_is_final` рассчитывается поле is_final с помощью оператора `case`. Если пользователь после данного запроса больше ничего не искал, то `LEAD(ts) OVER w` будет `NULL`, следовательно,` поле `ts_diff` будет `NULL` (это уже вычислено в `get_criteria).
 
