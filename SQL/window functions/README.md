@@ -1,3 +1,5 @@
+# wb-tech-school-hw1/SQL/window functions
+
 Задания выполнялись с использованием PostgreSQL.
 
 ## Часть 1.
