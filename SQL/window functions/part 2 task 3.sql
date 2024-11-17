@@ -1,0 +1,17 @@
+WITH get_rank AS (
+    SELECT 
+        SALES.DATE AS DATE_, 
+  		SHOPNUMBER, 
+  		ID_GOOD, 
+  		RANK() OVER w AS rnk
+    FROM 
+  	    SALES
+    WINDOW w AS (
+        PARTITION BY SALES.DATE, SHOPNUMBER
+        ORDER BY QTY DESC
+    )
+)
+SELECT DATE_, SHOPNUMBER, ID_GOOD
+FROM get_rank
+WHERE rnk <= 3
+ORDER BY TO_DATE(DATE_, 'DD.MM.YYYY'), SHOPNUMBER, rnk, ID_GOOD;
